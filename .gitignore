@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+#Build and binary directories
+bin
+build
+build_*_release
+build_*_debug
