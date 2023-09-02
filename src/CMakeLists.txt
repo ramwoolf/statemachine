@@ -1,0 +1,18 @@
+set(TARGET_NAME StateMachine)
+
+file(GLOB_RECURSE CURRENT_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+
+add_executable(${TARGET_NAME}
+  main.cpp
+  ${CURRENT_SRCS}
+)
+
+target_link_libraries(${TARGET_NAME}
+)
+
+target_include_directories(${TARGET_NAME}
+  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+set(INSTALL_NAME_DIR ${PROJECT_ROOT}/bin)
+install(TARGETS ${TARGET_NAME} RUNTIME DESTINATION ${INSTALL_NAME_DIR}/${TARGET_NAME})
