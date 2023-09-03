@@ -36,3 +36,6 @@ bin
 build
 build_*_release
 build_*_debug
+
+# vscode config
+*.vscode
