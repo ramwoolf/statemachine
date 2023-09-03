@@ -22,9 +22,9 @@ class StateMachine {
 
     template <typename Event>
     void handle(Event const& event) {
-        auto passEventToState = [&event](auto statePtr) {
+        auto passEventToState = [this, &event](auto statePtr) {
             statePtr->handle(event).execute(*this);
-        }
+        };
         std::visit(passEventToState, currentState);
     }
 };
@@ -33,7 +33,7 @@ template <typename State>
 struct TransitionTo {
     template <typename Machine>
     void execute(Machine &machine) {
-        machine.transitionTo<State>();
+        machine.template transitionTo<State>();
     }
 };
 
@@ -42,8 +42,6 @@ struct Nothing
     template <typename Machine>
     void execute(Machine &) {}
 };
-
-
 
 
 } // namespace MyStateMachine
