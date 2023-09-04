@@ -27,6 +27,13 @@ class StateMachine {
         };
         std::visit(passEventToState, currentState);
     }
+
+    void OnUpdate() {
+        auto passOnUpdate = [this](auto statePtr) {
+            statePtr->OnUpdate();
+        };
+        std::visit(passOnUpdate, currentState);
+    }
 };
 
 template <typename State>
