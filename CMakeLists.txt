@@ -20,6 +20,6 @@ add_subdirectory(src)
 
 if(TEST_ENABLE)
   enable_testing()
-  find_package(gtest REQUIRED)
+  # find_package(gtest REQUIRED)
   add_subdirectory(tst)
 endif()

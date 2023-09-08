@@ -38,3 +38,9 @@ rm -r ./* > /dev/null
 cmake ../ -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DTEST_ENABLE=$TEST_ENABLE
 make && make install
 cd ../
+
+if [[ $TEST_ENABLE == ON ]]
+then cd bin/StateMachine/tests
+     make tests
+     cd ../../..
+fi
